@@ -1,0 +1,41 @@
+@startuml
+
+actor client
+participant "room in shop"
+actor worker
+participant warehouse
+participant cash
+
+activate worker
+worker -> worker : start work day
+worker -> warehouse : take product
+worker -> "room in shop" : put product
+worker -> "room in shop" : mop the floor
+worker -> cash : open cash
+deactivate worker
+
+
+
+activate client
+client -> client : come to the shop
+client -> "room in shop" : come
+client -> "room in shop" : take product
+client -> cash : come
+client -> cash : buy product
+deactivate client
+
+activate cash
+cash --> client : sell product
+deactivate cash
+
+activate client
+client -> cash : buy product
+client -> client : go out from the shop
+deactivate client
+
+activate worker
+worker -> cash : close cash
+worker -> worker : end work day
+deactivate worker
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+
+skinparam packageStyle rectangle
+
+package Workers {
+  actor worker as worker
+  actor manager as manager
+}
+
+actor client
+
+rectangle Shop {
+  client -> (product) : buy
+  worker -> product : sell
+  worker <- manager : check
+  worker -> (room in shop) : mop
+  worker -> (warehouse) : mop
+  worket -> (warehouse) : take product
+  worket -> (room in shop) : put product
+}
+
+@enduml

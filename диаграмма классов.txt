@@ -1,0 +1,44 @@
+@startuml
+class warehouse
+{
+  product[] products
+  product getProduct()
+  void putProduct()
+}
+
+class "room in shop"
+{
+  product[] products
+  product getProduct()
+  void putProduct()
+}
+
+
+class cash
+{
+  double money
+  double getMoney()
+  void putMoney()
+}
+
+class product
+{
+  int price
+  int discount
+  int murkup
+  void sall()
+  product buy()
+}
+
+class worker
+{
+  int salary
+  double workHours
+  void MopFloor()
+  void BringProduct()
+  void OpenCash()
+}
+
+warehouse *-- product
+"room in shop" *-- product
+@enduml
